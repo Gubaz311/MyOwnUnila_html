@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply font-Poppin text-lg 
+}
+
+.modeRotate {
+    @apply rotate-180
+}

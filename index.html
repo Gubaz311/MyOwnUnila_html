@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/Logo_UnivLampung.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Own Unila</title>
+  <link rel="stylesheet" href="./src/assets/main.css" />
+
+  <!-- Pengaturan Tema -->
+  <script>
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+
+</head>
+
+<body class="bg-lightMain dark:bg-darkMain">
+  <header id="header" class="max-h-50 bg-lightHeader text-lightText shadow-md rounded-sm z-10 p-1 sticky top-0 w-full dark:bg-darkHeader dark:text-darkText">
+    <!-- Baris Pertama -->
+    <div id="baris1" class="h-1/2 min-h-16 w-full py-3 flex justify-between">
+      <div class="flex py-0 relative">
+        <div class="h-full content-center hidden md:block md:mx-3">
+          <div class="h-11 w-11 mb-2">
+            <div class="relative w-full h-full overflow-hidden">
+              <!--Mengambil tinggi dan lebar maximum-->
+              <div class="w-[200%] h-[200%] z-10 transition duration-1000" id="svg1">
+                <!--Pembungkus svg-->
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="50 50 200 200">
+                  <defs>
+                    <style>
+                      .cls-1,
+                      .cls-2,
+                      .cls-3 {
+                        fill: none;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 4px;
+                      }
+
+                      .cls-1 {
+                        stroke: #262626;
+                      }
+
+                      .cls-1,
+                      .cls-2 {
+                        fill-rule: evenodd;
+                      }
+
+                      .cls-2,
+                      .cls-3 {
+                        stroke: #e6e6e6;
+                      }
+                    </style>
+                  </defs>
+                  <title>dark light button</title>
+                  <path class="cls-1" d="M85,100a15,15,0,1,0,15-15" />
+                  <path class="cls-1"
+                    d="M90.43,76.9C95.82,74.67,100,65,100,65s4.2,9.68,9.57,11.9,15.18-1.65,15.18-1.65-3.9,9.75-1.65,15.18S135,100,135,100s-9.65,4.12-11.9,9.57,1.65,15.18,1.65,15.18-9.79-3.88-15.18-1.65S100,135,100,135s-4.2-9.68-9.57-11.9-15.18,1.65-15.18,1.65,3.84-9.91,1.65-15.18S65,100,65,100s9.69-4.23,11.9-9.57-1.65-15.18-1.65-15.18S85,79.14,90.43,76.9Z" />
+                  <path class="cls-2"
+                    d="M190,220a30,30,0,0,1,38.71-28.71,30,30,0,1,0-37.42,37.42A30,30,0,0,1,190,220Z" />
+                  <line class="cls-3" x1="217" y1="227" x2="217" y2="211" />
+                  <line class="cls-3" x1="212" y1="219" x2="222" y2="219" />
+                </svg>
+              </div>
+              <div class="absolute w-full h-full top-0 left-0 z-20 cursor-pointer" id="mode1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="h-full content-center md:hidden" x-data="{ open: false }">
+          <div x-show="open" class="fixed inset-0 z-50 overflow-hidden">
+            <div x-show="open" x-transition:enter="transition-opacity ease-out duration-300"
+              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+              x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity">
+            </div>
+            <!-- Sidebar Content -->
+            <section class="absolute inset-y-0 right-0 pl-10 max-w-full flex">
+              <div x-show="open" x-transition:enter="transition-transform ease-out duration-300"
+                x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0"
+                x-transition:leave="transition-transform ease-in duration-300"
+                x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full"
+                class="w-screen max-w-md">
+                <div class="h-full flex flex-col py-6 bg-lightHeader shadow-xl dark:bg-darkHeader">
+                  <!-- Sidebar Header -->
+                  <div class="flex items-center justify-between px-4">
+                    <button x-on:click="open = false" class="text-lightText dark:text-darkText">
+                      <span class="sr-only">Close</span>
+                      <svg class="h-6 w-6" x-description="Heroicon name: x" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="mt-4 px-4 h-20 w-[85%] shadow-md mx-5 rounded-md flex items-center bg-lightContainer dark:bg-darkContainer">
+                    <p class="ml-2 text-lightText dark:text-darkText">
+                      Halaman Utama
+                    </p>
+                  </div>
+                  <div
+                    class="mt-4 px-4 h-20 w-[85%] shadow-md mx-5 rounded-md flex items-center bg-lightContainer dark:bg-darkContainer">
+                    <p class="ml-2 text-lightText dark:text-darkText">
+                      World Class University
+                    </p>
+                  </div>
+                  <div
+                    class="mt-4 px-4 h-20 w-[85%] shadow-md mx-5 rounded-md flex items-center bg-lightContainer dark:bg-darkContainer">
+                    <p class="ml-2 text-lightText dark:text-darkText">
+                      Kelulusan Tepat Waktu
+                    </p>
+                  </div>
+                  <div
+                    class="mt-4 px-4 h-20 w-[85%] shadow-md mx-5 rounded-md flex items-center bg-lightContainer dark:bg-darkContainer">
+                    <p class="ml-2 text-lightText dark:text-darkText">
+                      Infografis
+                    </p>
+                  </div>
+                  <!-- Sidebar Content -->
+                  <div class="mt-4 px-4 h-full overflow-auto">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <!-- Card 1 -->
+                      <div
+                        class="bg-gray-50 hover:bg-gray-100 p-4 cursor-pointer rounded-md border border-gray-300 transition-colors duration-300">
+                        <h3 class="text-lg font-semibold text-black mb-2">
+                          Card 1
+                        </h3>
+                        <p class="text-gray-600">Content for card 1.</p>
+                      </div>
+                      <!-- Card 2 -->
+                      <div
+                        class="bg-gray-50 hover:bg-gray-100 p-4 cursor-pointer rounded-md border border-gray-300 transition-colors duration-300">
+                        <h3 class="text-lg font-semibold text-black mb-2">
+                          Card 2
+                        </h3>
+                        <p class="text-gray-600">Content for card 2.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Sidebar Footer -->
+                  <div class="mt-6 px-4">
+                    <button class="flex justify-center items-center bg-white text-black rounded-md text-sm p-2 gap-1">
+                      <svg width="1rem" height="1rem" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 7C3 6.44772 3.44772 6 4 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H4C3.44772 8 3 7.55228 3 7ZM6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12ZM9 17C9 16.4477 9.44772 16 10 16H14C14.5523 16 15 16.4477 15 17C15 17.5523 14.5523 18 14 18H10C9.44772 18 9 17.5523 9 17Z"
+                            fill="currentColor"></path>
+                        </g>
+                      </svg>
+                      Filters
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <button x-on:click="open = true">
+            <div class="w-10 h-10 stroke-lightText dark:stroke-darkText" id="burger">
+              <!--Pembungkus svg-->
+              <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7L7 7M20 7L11 7" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M20 17H17M4 17L13 17" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M4 12H7L20 12" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+          </button>
+        </div>
+        <div class="h-full content-center ml-1 md:hidden">
+          <div class="h-11 w-11 mb-2">
+            <div class="relative w-full h-full overflow-hidden">
+              <!--Mengambil tinggi dan lebar maximum-->
+              <div class="w-[200%] h-[200%] z-10 transition duration-1000" id="svg2">
+                <!--Pembungkus svg-->
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="50 50 200 200">
+                  <defs>
+                    <style>
+                      .cls-1,
+                      .cls-2,
+                      .cls-3 {
+                        fill: none;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-width: 4px;
+                      }
+
+                      .cls-1 {
+                        stroke: #262626;
+                      }
+
+                      .cls-1,
+                      .cls-2 {
+                        fill-rule: evenodd;
+                      }
+
+                      .cls-2,
+                      .cls-3 {
+                        stroke: #e6e6e6;
+                      }
+                    </style>
+                  </defs>
+                  <title>dark light button</title>
+                  <path class="cls-1" d="M85,100a15,15,0,1,0,15-15" />
+                  <path class="cls-1"
+                    d="M90.43,76.9C95.82,74.67,100,65,100,65s4.2,9.68,9.57,11.9,15.18-1.65,15.18-1.65-3.9,9.75-1.65,15.18S135,100,135,100s-9.65,4.12-11.9,9.57,1.65,15.18,1.65,15.18-9.79-3.88-15.18-1.65S100,135,100,135s-4.2-9.68-9.57-11.9-15.18,1.65-15.18,1.65,3.84-9.91,1.65-15.18S65,100,65,100s9.69-4.23,11.9-9.57-1.65-15.18-1.65-15.18S85,79.14,90.43,76.9Z" />
+                  <path class="cls-2"
+                    d="M190,220a30,30,0,0,1,38.71-28.71,30,30,0,1,0-37.42,37.42A30,30,0,0,1,190,220Z" />
+                  <line class="cls-3" x1="217" y1="227" x2="217" y2="211" />
+                  <line class="cls-3" x1="212" y1="219" x2="222" y2="219" />
+                </svg>
+              </div>
+              <div class="absolute w-full h-full top-0 left-0 z-20 cursor-pointer" id="mode2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex py-0 relative">
+        <a href="./">
+          <div class="h-full content-center items-center mr-12 flex">
+            <div class="mr-1.5 h-8 w-8 md:h-11 md:w-11">
+                <img hre src="./src/assets/LogoUniv.png" alt="logo unila" />
+            </div>
+            <div class="text-base font-bold md:text-2xl">My"Own"-Unila</div>
+          </div>
+      </a>
+        <div class="h-full content-center mr-2">Login</div>
+      </div>
+    </div>
+    <!-- Baris Kedua -->
+    <div id="baris2"
+      class="border-t-4 border-y-lightContainer h-1/2 min-h-14 items-center px-4 space-x-5 content-center hidden md:flex dark:border-y-darkContainer transition duration-1000">
+      <!--div a-->
+      <span class="h-10 rounded flex items-center">
+        <span class="flex items-center">
+          <span class="h-10 w-10 flex items-center justify-center">
+            <!--Pembungkus svg-->
+            <svg height="80%" width="80%" viewBox="0 0 25 25" fill="none">
+              <path opacity="0.5"
+                d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"
+                fill="#1C274C" />
+              <path
+                d="M9 17.25C8.58579 17.25 8.25 17.5858 8.25 18C8.25 18.4142 8.58579 18.75 9 18.75H15C15.4142 18.75 15.75 18.4142 15.75 18C15.75 17.5858 15.4142 17.25 15 17.25H9Z"
+                fill="#1C274C" />
+            </svg>
+          </span>
+        </span>
+        <span>Halaman Utama</span>
+      </span>
+      <span class="h-10 rounded flex items-center">
+        <span class="flex items-center">
+          <span class="h-10 w-10 flex items-center justify-center">
+            <!--Pembungkus svg-->
+            <svg width="80%" height="80%" viewBox="0 0 25 25" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9.83824 18.4467C10.0103 18.7692 10.1826 19.0598 10.3473 19.3173C8.59745 18.9238 7.07906 17.9187 6.02838 16.5383C6.72181 16.1478 7.60995 15.743 8.67766 15.4468C8.98112 16.637 9.40924 17.6423 9.83824 18.4467ZM11.1618 17.7408C10.7891 17.0421 10.4156 16.1695 10.1465 15.1356C10.7258 15.0496 11.3442 15 12.0001 15C12.6559 15 13.2743 15.0496 13.8535 15.1355C13.5844 16.1695 13.2109 17.0421 12.8382 17.7408C12.5394 18.3011 12.2417 18.7484 12 19.0757C11.7583 18.7484 11.4606 18.3011 11.1618 17.7408ZM9.75 12C9.75 12.5841 9.7893 13.1385 9.8586 13.6619C10.5269 13.5594 11.2414 13.5 12.0001 13.5C12.7587 13.5 13.4732 13.5593 14.1414 13.6619C14.2107 13.1384 14.25 12.5841 14.25 12C14.25 11.4159 14.2107 10.8616 14.1414 10.3381C13.4732 10.4406 12.7587 10.5 12.0001 10.5C11.2414 10.5 10.5269 10.4406 9.8586 10.3381C9.7893 10.8615 9.75 11.4159 9.75 12ZM8.38688 10.0288C8.29977 10.6478 8.25 11.3054 8.25 12C8.25 12.6946 8.29977 13.3522 8.38688 13.9712C7.11338 14.3131 6.05882 14.7952 5.24324 15.2591C4.76698 14.2736 4.5 13.168 4.5 12C4.5 10.832 4.76698 9.72644 5.24323 8.74088C6.05872 9.20472 7.1133 9.68686 8.38688 10.0288ZM10.1465 8.86445C10.7258 8.95042 11.3442 9 12.0001 9C12.6559 9 13.2743 8.95043 13.8535 8.86447C13.5844 7.83055 13.2109 6.95793 12.8382 6.2592C12.5394 5.69894 12.2417 5.25156 12 4.92432C11.7583 5.25156 11.4606 5.69894 11.1618 6.25918C10.7891 6.95791 10.4156 7.83053 10.1465 8.86445ZM15.6131 10.0289C15.7002 10.6479 15.75 11.3055 15.75 12C15.75 12.6946 15.7002 13.3521 15.6131 13.9711C16.8866 14.3131 17.9412 14.7952 18.7568 15.2591C19.233 14.2735 19.5 13.1679 19.5 12C19.5 10.8321 19.233 9.72647 18.7568 8.74093C17.9413 9.20477 16.8867 9.6869 15.6131 10.0289ZM17.9716 7.46178C17.2781 7.85231 16.39 8.25705 15.3224 8.55328C15.0189 7.36304 14.5908 6.35769 14.1618 5.55332C13.9897 5.23077 13.8174 4.94025 13.6527 4.6827C15.4026 5.07623 16.921 6.08136 17.9716 7.46178ZM8.67765 8.55325C7.61001 8.25701 6.7219 7.85227 6.02839 7.46173C7.07906 6.08134 8.59745 5.07623 10.3472 4.6827C10.1826 4.94025 10.0103 5.23076 9.83823 5.5533C9.40924 6.35767 8.98112 7.36301 8.67765 8.55325ZM15.3224 15.4467C15.0189 16.637 14.5908 17.6423 14.1618 18.4467C13.9897 18.7692 13.8174 19.0598 13.6527 19.3173C15.4026 18.9238 16.921 17.9186 17.9717 16.5382C17.2782 16.1477 16.3901 15.743 15.3224 15.4467ZM12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
+                fill="#080341" />
+            </svg>
+          </span>
+        </span>
+        <span>World Class University ▾</span>
+      </span>
+      <span class="h-10 rounded flex items-center">
+        <span class="flex items-center">
+          <span class="h-10 w-10 flex items-center justify-center">
+            <!--Pembungkus svg-->
+            <svg width="80%" height="80%" viewBox="0 0 25 25" fill="none">
+              <path
+                d="M21 3L14 9L10 5L3 11M4.5 21C3.67157 21 3 20.3284 3 19.5V17.5C3 16.6716 3.67157 16 4.5 16C5.32843 16 6 16.6716 6 17.5V19.5C6 20.3284 5.32843 21 4.5 21ZM11.5 21C10.6716 21 10 20.3284 10 19.5V14.5C10 13.6716 10.6716 13 11.5 13C12.3284 13 13 13.6716 13 14.5V19.5C13 20.3284 12.3284 21 11.5 21ZM18.5 21C17.6716 21 17 20.3284 17 19.5V16.5C17 15.6716 17.6716 15 18.5 15C19.3284 15 20 15.6716 20 16.5V19.5C20 20.3284 19.3284 21 18.5 21Z"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </span>
+        <span>Kelulusan Tepat Waktu</span>
+      </span>
+      <span class="h-10 rounded flex items-center">
+        <span class="flex items-center">
+          <span class="h-10 w-10 flex items-center justify-center">
+            <!--Pembungkus svg-->
+            <svg width="80%" height="80%" viewBox="0 0 25 25" fill="none">
+              <path
+                d="M3 14.6C3 14.0399 3 13.7599 3.10899 13.546C3.20487 13.3578 3.35785 13.2049 3.54601 13.109C3.75992 13 4.03995 13 4.6 13H5.4C5.96005 13 6.24008 13 6.45399 13.109C6.64215 13.2049 6.79513 13.3578 6.89101 13.546C7 13.7599 7 14.0399 7 14.6V19.4C7 19.9601 7 20.2401 6.89101 20.454C6.79513 20.6422 6.64215 20.7951 6.45399 20.891C6.24008 21 5.96005 21 5.4 21H4.6C4.03995 21 3.75992 21 3.54601 20.891C3.35785 20.7951 3.20487 20.6422 3.10899 20.454C3 20.2401 3 19.9601 3 19.4V14.6Z"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M10 4.6C10 4.03995 10 3.75992 10.109 3.54601C10.2049 3.35785 10.3578 3.20487 10.546 3.10899C10.7599 3 11.0399 3 11.6 3H12.4C12.9601 3 13.2401 3 13.454 3.10899C13.6422 3.20487 13.7951 3.35785 13.891 3.54601C14 3.75992 14 4.03995 14 4.6V19.4C14 19.9601 14 20.2401 13.891 20.454C13.7951 20.6422 13.6422 20.7951 13.454 20.891C13.2401 21 12.9601 21 12.4 21H11.6C11.0399 21 10.7599 21 10.546 20.891C10.3578 20.7951 10.2049 20.6422 10.109 20.454C10 20.2401 10 19.9601 10 19.4V4.6Z"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M17 10.6C17 10.0399 17 9.75992 17.109 9.54601C17.2049 9.35785 17.3578 9.20487 17.546 9.10899C17.7599 9 18.0399 9 18.6 9H19.4C19.9601 9 20.2401 9 20.454 9.10899C20.6422 9.20487 20.7951 9.35785 20.891 9.54601C21 9.75992 21 10.0399 21 10.6V19.4C21 19.9601 21 20.2401 20.891 20.454C20.7951 20.6422 20.6422 20.7951 20.454 20.891C20.2401 21 19.9601 21 19.4 21H18.6C18.0399 21 17.7599 21 17.546 20.891C17.3578 20.7951 17.2049 20.6422 17.109 20.454C17 20.2401 17 19.9601 17 19.4V10.6Z"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </span>
+        <span>Infografis </span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Vue app -->
+  <div id="app"></div>
+
+  <!-- Importing script -->
+  <script type="module" src="/src/main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.8/dist/cdn.min.js"></script>
+  <script src="./src/js/ThemeMode.js"></script>
+</body>
+
+</html>
